@@ -1,16 +1,21 @@
-# Real Estate Price Predictor
+# Real Estate Price Predictor 🏡
 
-A machine learning project to predict median home values using exploratory data analysis and regression modeling.
+A comprehensive machine learning project to predict median home values using exploratory data analysis, advanced feature engineering, and a production-ready API with interactive UI.
 
 ## Project Overview
 
-This project analyzes real estate data to identify key factors influencing home prices and builds a predictive model. The dataset contains 14 features including crime rates, room counts, property taxes, and more.
+This project provides an end-to-end solution for real estate price prediction:
+- **Data Analysis**: Comprehensive EDA with distribution analysis and correlation studies
+- **ML Pipeline**: Trained model with feature engineering and data preprocessing
+- **Production API**: FastAPI-based REST API for price predictions
+- **Interactive UI**: Streamlit web application for user-friendly predictions
+- **Containerization**: Docker support for easy deployment
 
 ## Dataset
 
 **Source:** Boston Housing Dataset
 
-**Features (14 total):**
+**Features (14 input features):**
 - **CRIM** - Per capita crime rate by town
 - **ZN** - Proportion of residential land zoned for lots over 25,000 sq.ft.
 - **INDUS** - Proportion of non-retail business acres per town
@@ -24,30 +29,38 @@ This project analyzes real estate data to identify key factors influencing home 
 - **PTRATIO** - Pupil-teacher ratio by town
 - **B** - 1000(Bk - 0.63)² where Bk is proportion of blacks by town
 - **LSTAT** - % lower status of the population
-- **MEDV** - Median value of owner-occupied homes in $1000's (Target)
+
+**Target:**
+- **MEDV** - Median value of owner-occupied homes in $1000's
 
 ## Project Structure
 
 ```
 real-estate-predictor/
+├── artifacts/
+│   └── house_price_pipeline.pkl    # Trained model pipeline (scikit-learn)
 ├── data/
 │   ├── data.csv                    # Raw dataset
 │   ├── train.csv                   # Training set
 │   ├── test.csv                    # Test set
-│   ├── processed/
-│   │   ├── train_processed.csv     # Processed training data
-│   │   └── test_processed.csv      # Processed test data
-│   └── eda.md                      # EDA notes
+│   └── processed/
+│       ├── train_processed.csv     # Processed training data
+│       └── test_processed.csv      # Processed test data
 ├── src/
-│   ├── eda_comprehensive.ipynb     # Comprehensive EDA notebook
-│   ├── eda.py                      # EDA analysis script
-│   ├── data_ingestion.py           # Data loading and ingestion
-│   ├── preprocessing.py            # Data preprocessing
-│   ├── feature_engineering.py      # Feature engineering
-│   └── model_trainer.py            # Model training script
-├── notebooks/                      # Additional notebooks
+│   ├── data_ingestion.py           # Data loading utilities
+│   ├── preprocessing.py            # Data cleaning and transformation
+│   ├── feature_engineering.py      # Feature creation and engineering
+│   ├── eda.py                      # EDA analysis functions
+│   ├── models.py                   # Model definitions
+│   └── model_trainer.py            # Model training and evaluation
+├── notebooks/
+│   └── eda_comprehensive.ipynb     # Interactive EDA notebook
 ├── tests/                          # Unit tests
-├── main.py                         # Main entry point
+├── main.py                         # FastAPI application
+├── streamlit_app.py                # Streamlit web interface
+├── Dockerfile                      # Docker containerization
+├── docker-compose.yml              # Docker Compose configuration
+├── requirements.txt                # Python dependencies
 └── README.md                       # This file
 ```
 
