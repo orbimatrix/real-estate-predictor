@@ -119,6 +119,16 @@ pip install pandas numpy scikit-learn matplotlib seaborn
 import pandas as pd
 df = pd.read_csv("../data/data.csv")
 ```
+### Streamlit app
+```
+streamlit run streamlit_app.py
+```
+and you must run backend fastapi before making prediction on streamlit app.
+
+### Docker files
+In streamlit_app.py, change your request URL from http://localhost:8000/predict to http://backend:8000/predict to allow the containers to talk to each other.
+
+
 
 ### Visualizing Room vs Price Relationship
 ```python
@@ -133,6 +143,7 @@ plt.title('Room Count vs House Price with Regression Line')
 plt.grid(True, alpha=0.3)
 plt.show()
 ```
+
 
 ## Model Performance
 
@@ -160,9 +171,10 @@ plt.show()
 4. **Evaluate** using metrics (R², RMSE, MAE)
 5. **Hyperparameter tuning** for optimal performance
 
+
 ## Author
 
-Real Estate Prediction ML Project
+Saqib Iqbal
 
 ## License
 
